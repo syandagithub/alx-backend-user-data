@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Database module."""
+"""DB module."""
 from sqlalchemy import create_engine, tuple_
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.ext.declarative import declarative_base
@@ -11,7 +11,7 @@ from user import Base, User
 
 
 class DB:
-    """Database class."""
+    """DB class."""
 
     def __init__(self) -> None:
         """Initialize a new DB instance.
