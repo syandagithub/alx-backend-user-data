@@ -1,6 +1,5 @@
-
 #!/usr/bin/env python3
-"""auth module
+"""auth module for authentucation.
 """
 import bcrypt
 from uuid import uuid4
