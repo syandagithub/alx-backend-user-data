@@ -3,9 +3,12 @@
 """auth module
 """
 import bcrypt
+from uuid import uuid4
+from typing import Union
+from sqlalchemy.orm.exc import NoResultFound
+
 from db import DB
 from user import User
-import uuid
 
 
 def _hash_password(password: str) -> bytes:
