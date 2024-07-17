@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""auth module for authentucation.
+"""A module for authentication-related routines.
 """
 import bcrypt
 from uuid import uuid4
@@ -11,7 +11,9 @@ from user import User
 
 
 def _hash_password(password: str) -> bytes:
-   return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+    """Hashes a password.
+    """
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
 
 
 def _generate_uuid() -> str:
@@ -68,7 +70,7 @@ class Auth:
         return session_id
 
     def get_user_from_session_id(self, session_id: str) -> Union[User, None]:
-        """Gets a user based on a given session ID.
+        """Retrieves a user based on a given session ID.
         """
         user = None
         if session_id is None:
@@ -80,7 +82,7 @@ class Auth:
         return user
 
     def destroy_session(self, user_id: int) -> None:
-        """Kills a session associated with a given user.
+        """Destroys a session associated with a given user.
         """
         if user_id is None:
             return None
@@ -101,7 +103,7 @@ class Auth:
         return reset_token
 
     def update_password(self, reset_token: str, password: str) -> None:
-        """Updates a user's password.
+        """Updates a user's password given the user's reset token.
         """
         user = None
         try:
